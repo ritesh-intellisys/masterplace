@@ -1,0 +1,123 @@
+/* Container Styles */
+.cont-container {
+  background-color: #ffffff;
+}
+
+/* Heading Styles */
+.cont-heading {
+  text-align: center;
+  padding: 2.5rem 0;
+}
+
+.cont-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Map Container */
+.cont-map {
+  width: 98vw;
+  /* margin: auto; */
+  height: 24rem;
+}
+
+/* Content Section */
+.cont-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+/* Contact Info */
+.cont-info {
+  font-size: 1rem;
+  color: #111827;
+}
+
+.cont-subtitle {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.cont-detail {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Styles */
+.cont-form {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.cont-form-title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+/* Form Grid */
+.cont-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Input Styles */
+.cont-input {
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.cont-input:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+.cont-input-full {
+  grid-column: span 2;
+}
+
+/* Button Styles */
+.cont-submit {
+  width: 100%;
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+
+.cont-submit:hover {
+  background-color: #b91c1c;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .cont-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .cont-input-full {
+    grid-column: span 1;
+  }
+}

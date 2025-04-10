@@ -1,0 +1,134 @@
+.about-us {
+  font-family: 'Segoe UI', sans-serif;
+  color: #2c2c2c;
+}
+
+/* HERO SECTION */
+.hero-section {
+ 
+  padding: 60px 20px;
+  color: #ab2525;
+  text-align: center;
+}
+.hero-section {
+  position: relative;
+  height: max-content;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 20px;
+  color: gold;
+}
+
+
+.hero-section h1 {
+  font-size: 40px;
+  color:#ffffff;
+  /* text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); */
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.hero-section h1 span {
+  color: #5a5b5f;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.stat-box {
+  background: rgba(0, 0, 0, 0.5);
+  /* border: 2px solid #5a5b5f; */
+  border-radius: 100px;
+  padding: 10px 20px;
+  color: #ffffff;;
+  min-width: 180px;
+  text-align: center;
+}
+
+.stat-box h2 {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 10px;
+  /* text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.5); */
+}
+
+/* LEGACY SECTION */
+.legacy-section {
+  display: flex;
+  padding: 60px 10%;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.legacy-text h3 {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.legacy-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.legacy-text p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legacy-image img {
+  width: 100%;
+  max-width: 500px;
+  opacity: 0.6;
+}
+
+/* VISION AND MISSION SECTION */
+.vm-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 60px 10%;
+  background: #fafafa;
+  gap: 40px;
+}
+
+.vision, .mission {
+  flex: 1;
+  min-width: 280px;
+}
+
+.vision h2, .mission h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.vision p, .mission p {
+  font-size: 16px;
+  line-height: 1.6;
+}

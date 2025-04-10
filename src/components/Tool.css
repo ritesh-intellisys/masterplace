@@ -1,0 +1,84 @@
+.insights-section {
+    background-color: #f4f8fb;
+    padding: 50px 30px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .section-header {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .section-header h2 {
+    font-size: 28px;
+    color: #222;
+  }
+  
+  .section-header p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .view-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #e8f1ff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #007bff;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .tools-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+    white-space: nowrap; /* Ensures cards don't wrap */
+  }
+  
+  .tools-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .tools-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+  
+  .tool-card {
+    min-width: 220px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .tool-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .icon-box {
+    font-size: 30px;
+    color: gray; /* ✅ Changed from blue to gray */
+    margin-bottom: 15px;
+  }
+  
+  .tool-card h4 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .tool-card p {
+    font-size: 14px;
+    color: #777;
+  }
