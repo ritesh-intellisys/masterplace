@@ -11,10 +11,10 @@ const HomePage = () => {
     <>
       <Masterhome />
       <Featuredhomes />
+      <Tool/>
       <Searchform />
       <Card />
       <Explore />
-      <Tool/>
     </>
   );
 };
