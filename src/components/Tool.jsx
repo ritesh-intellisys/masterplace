@@ -28,18 +28,18 @@ const toolsData = [
 
 const InsightsTools = () => {
   return (
-    <section className="insights-section">
-      <div className="section-header">
-        <h2>Insights & Tools</h2>
-        <p>Go from browsing to buying</p>
-        <button className="view-btn">View all Insights</button>
+    <section className="toolx-section">
+      <div className="toolx-header">
+        <h2 className="toolx-title">Insights & Tools</h2>
+        <p className="toolx-subtitle">Go from browsing to buying</p>
+        <button className="toolx-view-btn">View all Insights</button>
       </div>
-      <div className="tools-scroll">
+      <div className="toolx-scroll-container">
         {toolsData.map((tool, index) => (
-          <div key={index} className="tool-card">
-            <div className="icon-box">{tool.icon}</div>
-            <h4>{tool.title}</h4>
-            <p>{tool.desc}</p>
+          <div key={index} className="toolx-card">
+            <div className="toolx-icon-box">{tool.icon}</div>
+            <h4 className="toolx-card-title">{tool.title}</h4>
+            <p className="toolx-card-desc">{tool.desc}</p>
           </div>
         ))}
       </div>

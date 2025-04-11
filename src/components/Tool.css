@@ -1,84 +1,149 @@
-.insights-section {
-    background-color: #f4f8fb;
-    padding: 50px 30px;
-    text-align: center;
-    overflow: hidden;
+/* ===== TOOLX SECTION ===== */
+.toolx-section {
+  background-color: #F8F5F2;
+  padding: 80px 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.toolx-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.toolx-title {
+  font-size: 2.5rem;
+  color: #1A365D;
+  margin-bottom: 15px;
+}
+
+.toolx-subtitle {
+  font-size: 1.1rem;
+  color: #6B7280;
+  margin-bottom: 20px;
+}
+
+.toolx-view-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #1A365D;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.toolx-view-btn:hover {
+  background-color: #122847;
+  transform: translateY(-2px);
+}
+
+/* ===== TOOLX SCROLL CONTAINER ===== */
+.toolx-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.toolx-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.toolx-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #B78D65;
+  border-radius: 10px;
+}
+
+/* ===== TOOLX CARDS ===== */
+.toolx-card {
+  min-width: 240px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px 20px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.toolx-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.toolx-icon-box {
+  font-size: 36px;
+  color: #B78D65;
+  margin-bottom: 20px;
+}
+
+.toolx-card-title {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #1A365D;
+  font-weight: 600;
+}
+
+.toolx-card-desc {
+  font-size: 0.95rem;
+  color: #6B7280;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 1024px) {
+  .toolx-section {
+    padding: 70px 5%;
   }
   
-  .section-header {
-    margin-bottom: 20px;
+  .toolx-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolx-header {
+    margin-bottom: 30px;
+  }
+  
+  .toolx-view-btn {
     position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 20px;
   }
   
-  .section-header h2 {
-    font-size: 28px;
-    color: #222;
-  }
-  
-  .section-header p {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .view-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: #e8f1ff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: #007bff;
-    cursor: pointer;
-    font-weight: 500;
-  }
-  
-  .tools-scroll {
-    display: flex;
-    overflow-x: auto;
+  .toolx-scroll-container {
     gap: 20px;
-    padding: 20px 0;
-    scroll-behavior: smooth;
-    white-space: nowrap; /* Ensures cards don't wrap */
   }
   
-  .tools-scroll::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .tools-scroll::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 10px;
-  }
-  
-  .tool-card {
+  .toolx-card {
     min-width: 220px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    text-align: center;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolx-section {
+    padding: 60px 15px;
   }
   
-  .tool-card:hover {
-    transform: translateY(-5px);
+  .toolx-title {
+    font-size: 1.8rem;
   }
   
-  .icon-box {
-    font-size: 30px;
-    color: gray; /* ✅ Changed from blue to gray */
-    margin-bottom: 15px;
+  .toolx-card {
+    min-width: 200px;
   }
-  
-  .tool-card h4 {
-    margin-bottom: 8px;
-    font-size: 18px;
-    color: #333;
-  }
-  
-  .tool-card p {
-    font-size: 14px;
-    color: #777;
-  }
+}
