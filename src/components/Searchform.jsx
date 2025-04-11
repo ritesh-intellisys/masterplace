@@ -12,6 +12,7 @@ const services = [
     image: img1,
     icon: "👔"
   },
+  
   {
     id: 2,
     title: "Premium Service",
