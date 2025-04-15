@@ -1,122 +1,153 @@
+.property-card.hidden-card {
+  display: none;
+}
+
+
+
 .properties-page {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  .section-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    padding: 10px 0;
-    border-bottom: 2px solid #eaeaea;
-    color: #2c2c2c;
-  }
-  
-  .section-title span {
-    color: #d62828;
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+  text-align: center;
+}
+
+.section-title span {
+  color: #e53e3e;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  justify-content: center;
+}
+
+
+.property-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.price-tag {
+  background: #e53e3e;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0.375rem 0 0.375rem;
+  position: absolute;
+  margin: 1rem;
+}
+
+.property-card h4 {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1.125rem;
+  color: #1a202c;
+}
+
+.property-card .bold {
+  font-weight: 600;
+  margin: 0 1rem;
+  color: #2d3748;
+}
+
+.property-card p {
+  margin: 0.25rem 1rem;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.property-card button {
+  margin: 1rem auto;
+  background: #2d3748;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: calc(100% - 2rem);
+}
+
+.property-card button:hover {
+  background: #1a202c;
+}
+
+.show-more-btn {
+  display: block;
+  margin: 2rem auto;
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.show-more-btn:hover {
+  background: #c53030;
+  transform: translateY(-1px);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 1024px) {
+  .properties-page {
+    padding: 3rem 2rem;
   }
   
   .property-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-bottom: 20px;
-    scroll-behavior: smooth;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 1.5rem;
   }
   
-  .property-grid::-webkit-scrollbar {
-    height: 10px;
-  }
-  
-  .property-grid::-webkit-scrollbar-track {
-    background: #eee;
-    border-radius: 10px;
-  }
-  
-  .property-grid::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-  }
-  
-  .property-card {
-    min-width: 260px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-  }
-  
-  .property-card:hover {
-    transform: translateY(-5px);
+  .property-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
   
   .property-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-bottom: 1px solid #eee;
+    height: 180px;
   }
-  
-  .price-tag {
-    background: #d62828;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 0 0 8px 0;
-    display: inline-block;
-    margin-top: -30px;
-    margin-left: 10px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .property-card h4 {
-    margin: 10px 12px 4px;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .property-card .bold {
-    font-weight: 600;
-    margin: 0 12px;
-  }
-  
-  .property-card p {
-    margin: 4px 12px;
-    font-size: 14px;
-    color: #666;
-  }
-  
+}
+
+@media (max-width: 400px) {
   .property-card button {
-    margin: 10px 12px 15px;
-    background-color: #1f2937;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    padding: 0.6rem 1rem;
   }
-  
-  .property-card button:hover {
-    background-color: #374151;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .section-title {
-      font-size: 20px;
-    }
-  
-    .property-card {
-      min-width: 80%;
-    }
-  
-    .property-card img {
-      height: 140px;
-    }
-  }
+}

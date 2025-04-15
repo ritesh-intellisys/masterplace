@@ -1,19 +1,31 @@
+:root {
+  --nav-bg: #1A365D;
+  --accent-color: #B78D65;
+  --text-light: #ffffff;
+  --text-dark: #1a1a1a;
+  --hover-transition: all 0.3s ease;
+  --popup-bg: #f8f9fa;
+  --navbar-height: 80px; /* Add this line */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 70px; /* Adjust for mobile */
+  }
+}
+
 /* ===== BASE STYLES ===== */
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  /* overflow-x: hidden; */
   font-family: 'Lato', sans-serif;
   color: #333333;
   background-color: #F8F5F2;
 }
 
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+
 
 /* ===== NAVBAR SPACER ===== */
 .navbar-fixed-space {

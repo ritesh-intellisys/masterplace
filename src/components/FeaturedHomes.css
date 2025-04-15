@@ -1,12 +1,13 @@
 /* ===== FEATURED SECTION ===== */
 .featured-section {
+  /* width: 100vw; */
   padding: 80px 5%;
   background-color: #F8F5F2;
 }
 
 .featured-header {
   text-align: center;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto 50px;
 }
 
@@ -36,7 +37,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
-  max-width: 1400px;
+  /* max-width: 1000px; */
   margin: 0 auto;
 }
 

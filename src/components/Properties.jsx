@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Property.css';
 
 import img from '../assets/flat.jpg';
@@ -90,9 +90,15 @@ const propertiesForRent = [
 ];
 
 const PropertiesPage = () => {
-  const renderCards = (list) =>
+  const [showAllSale, setShowAllSale] = useState(false);
+  const [showAllRent, setShowAllRent] = useState(false);
+
+  const renderCards = (list, showAll) =>
     list.map((item, idx) => (
-      <div key={idx} className="property-card">
+      <div 
+        key={idx} 
+        className={`property-card ${!showAll && idx >= 3 ? 'hidden-card' : ''}`}
+      >
         <img src={item.image} alt={item.type} />
         <div className="price-tag">{item.price}</div>
         <h4>{item.type}</h4>
@@ -105,10 +111,30 @@ const PropertiesPage = () => {
   return (
     <div className="properties-page">
       <h2 className="section-title">Latest Properties for <span>Sale</span></h2>
-      <div className="property-grid scroll-x">{renderCards(propertiesForSale)}</div>
+      <div className="property-grid">
+        {renderCards(propertiesForSale, showAllSale)}
+      </div>
+      {propertiesForSale.length > 3 && (
+        <button 
+          className="show-more-btn" 
+          onClick={() => setShowAllSale(!showAllSale)}
+        >
+          {showAllSale ? 'Show Less' : 'Show More'}
+        </button>
+      )}
 
       <h2 className="section-title">Latest Properties for <span>Rent</span></h2>
-      <div className="property-grid scroll-x">{renderCards(propertiesForRent)}</div>
+      <div className="property-grid">
+        {renderCards(propertiesForRent, showAllRent)}
+      </div>
+      {propertiesForRent.length > 3 && (
+        <button 
+          className="show-more-btn" 
+          onClick={() => setShowAllRent(!showAllRent)}
+        >
+          {showAllRent ? 'Show Less' : 'Show More'}
+        </button>
+      )}
     </div>
   );
 };
