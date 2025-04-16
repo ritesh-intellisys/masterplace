@@ -5,33 +5,36 @@
   --text-dark: #1a1a1a;
   --hover-transition: all 0.3s ease;
   --popup-bg: #f8f9fa;
-  --navbar-height: 80px; /* Add this line */
+  --navbar-height: 80px;
 }
 
 @media (max-width: 768px) {
   :root {
-    --navbar-height: 70px; /* Adjust for mobile */
+    --navbar-height: 70px;
   }
 }
 
 /* ===== BASE STYLES ===== */
-body {
+
+/* html, body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   width: 100%;
-  /* overflow-x: hidden; */
-  font-family: 'Lato', sans-serif;
-  color: #333333;
-  background-color: #F8F5F2;
-}
+} */
+
+/* Apply border-box globally */
+/* *, *::before, *::after {
+  box-sizing: border-box;
+} */
 
 
 
 /* ===== NAVBAR SPACER ===== */
-.navbar-fixed-space {
+/* .navbar-fixed-space {
   height: 100px;
   width: 100%;
-}
+} */
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4, h5, h6 {
