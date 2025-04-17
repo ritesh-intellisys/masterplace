@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Property.css';
 
-import img from '../assets/flat.jpg';
+import img from '../assets/flat6.jpg';
 import img1 from '../assets/flat2.jpg';
 import img2 from '../assets/flat3.jpg';
 import img3 from '../assets/flat4.jpg';

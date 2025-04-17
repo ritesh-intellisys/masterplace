@@ -14,8 +14,8 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <div className="navbar-fixed-space"></div>
-        <main className="min-h-[calc(100vh-180px)]">
+        <div className="main-content"></div>
+        
           <Routes>
             
             <Route path='/' element={<Home />} />
@@ -23,9 +23,9 @@ function App() {
             <Route path='/properties' element={<Properties />} />
             <Route path='/contact' element={<Contact />} />
           </Routes>
-        </main>
-        <Footer />
+        
       </div>
+        <Footer />
     </Router>
   );
 }

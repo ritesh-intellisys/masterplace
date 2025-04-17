@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserCircle, FaTimes } from 'react-icons/fa';
+import { FaUserCircle, FaTimes, FaSearch, FaHome, FaBuilding, FaInfoCircle, FaEnvelope } from 'react-icons/fa';
 import { FiUser, FiMail, FiLock, FiPhone } from 'react-icons/fi';
 import logo from '../assets/logo.jpg';
 import './Navbar.css';
@@ -14,6 +14,7 @@ const Navbar = () => {
   const [registerForm, setRegisterForm] = useState({
     firstName: '', lastName: '', username: '', email: '', phone: '', password: '', confirmPassword: '', agreeTerms: false
   });
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setIsMobile(!isMobile);
   const toggleAuthPopup = () => setShowAuthPopup(!showAuthPopup);
@@ -72,59 +73,119 @@ const Navbar = () => {
       }
     };
 
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
     window.addEventListener('resize', handleResize);
     document.addEventListener('click', handleClickOutside);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isMobile]);
 
   return (
-    <nav className="navbar">
-      <div className="navbar__logo">
-        <Link to='/'><img src={logo} alt="Logo" /></Link>
-      </div>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar__container">
+        <div className="navbar__logo">
+          <Link to='/' onClick={() => setIsMobile(false)}>
+            <img src={logo} alt="MasterPlace Logo" />
+            <span>MasterPlace</span>
+          </Link>
+        </div>
 
-      <div className={`navbar__links ${isMobile ? 'mobile' : ''}`}>
-        <ul>
-          <li><Link to='/' onClick={() => setIsMobile(false)}>Home</Link></li>
-          <li><Link to="/properties" onClick={() => setIsMobile(false)}>Properties</Link></li>
-          <li><Link to="/about" onClick={() => setIsMobile(false)}>About</Link></li>
-          <li><Link to="/contact" onClick={() => setIsMobile(false)}>Contact</Link></li>
-          <li className="navbar__profile">
-            {isLoggedIn ? (
-              <button className="logout-btn" onClick={handleLogout}>Logout</button>
-            ) : (
-              <div className="profile-icon" onClick={toggleAuthPopup}>
-                <FaUserCircle size={24} />
+        <div className={`navbar__links ${isMobile ? 'mobile' : ''}`}>
+          <ul>
+            <li>
+              <Link to='/' onClick={() => setIsMobile(false)}>
+                <FaHome className="nav-icon" />
+                <span>Home</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/properties" onClick={() => setIsMobile(false)}>
+                <FaBuilding className="nav-icon" />
+                <span>Properties</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={() => setIsMobile(false)}>
+                <FaInfoCircle className="nav-icon" />
+                <span>About</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={() => setIsMobile(false)}>
+                <FaEnvelope className="nav-icon" />
+                <span>Contact</span>
+              </Link>
+            </li>
+            <li className="navbar__search">
+              <div className="search-box">
+                <input type="text" placeholder="Search properties..." />
+                <button type="submit">
+                  <FaSearch />
+                </button>
               </div>
-            )}
-          </li>
-        </ul>
+            </li>
+            <li className="navbar__profile">
+              {isLoggedIn ? (
+                <div className="profile-dropdown">
+                  <button className="profile-btn">
+                    <FaUserCircle size={24} />
+                    <span>My Account</span>
+                  </button>
+                  <div className="dropdown-content">
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/saved">Saved Properties</Link>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                </div>
+              ) : (
+                <button className="auth-btn" onClick={toggleAuthPopup}>
+                  <FaUserCircle size={24} />
+                  <span>Sign In</span>
+                </button>
+              )}
+            </li>
+          </ul>
+        </div>
+
+        <div className={`navbar__toggle ${isMobile ? 'active' : ''}`} onClick={toggleMenu}>
+          <span className="navbar__toggle-line"></span>
+          <span className="navbar__toggle-line"></span>
+          <span className="navbar__toggle-line"></span>
+        </div>
       </div>
 
       {showAuthPopup && (
         <div className="auth-popup">
+          <div className="auth-popup-overlay" onClick={toggleAuthPopup}></div>
           <div className="auth-popup-content">
             <button className="close-popup" onClick={toggleAuthPopup}>
               <FaTimes />
             </button>
             
-            <div className="auth-tabs">
-              <button
-                className={`auth-tab ${activeTab === 'login' ? 'active' : ''}`}
-                onClick={() => setActiveTab('login')}
-              >
-                Sign In
-              </button>
-              <button
-                className={`auth-tab ${activeTab === 'register' ? 'active' : ''}`}
-                onClick={() => setActiveTab('register')}
-              >
-                Register
-              </button>
+            <div className="auth-header">
+              <h3>{activeTab === 'login' ? 'Welcome Back' : 'Create Account'}</h3>
+              <div className="auth-tabs">
+                <button
+                  className={`auth-tab ${activeTab === 'login' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('login')}
+                >
+                  Sign In
+                </button>
+                <button
+                  className={`auth-tab ${activeTab === 'register' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('register')}
+                >
+                  Register
+                </button>
+              </div>
             </div>
 
             {activeTab === 'login' ? (
@@ -152,14 +213,14 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="auth-options">
-                  <label>
+                  <label className="remember-me">
                     <input
                       type="checkbox"
                       name="remember"
                       checked={loginForm.remember}
                       onChange={handleLoginChange}
                     />
-                    Remember me
+                    <span>Remember me</span>
                   </label>
                   <button type="button" className="forgot-password">
                     Forgot password?
@@ -168,9 +229,22 @@ const Navbar = () => {
                 <button type="submit" className="auth-submit-btn">
                   Sign In
                 </button>
+                <div className="auth-divider">
+                  <span>or</span>
+                </div>
+                <div className="social-auth">
+                  <button type="button" className="social-btn google">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google" />
+                    Continue with Google
+                  </button>
+                  <button type="button" className="social-btn facebook">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+                    Continue with Facebook
+                  </button>
+                </div>
               </form>
             ) : (
-              <form onSubmit={handleRegisterSubmit} className="auth-form signup-form-x">
+              <form onSubmit={handleRegisterSubmit} className="auth-form signup-form">
                 <div className="name-fields">
                   <div className="input-group">
                     <input
@@ -220,7 +294,7 @@ const Navbar = () => {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Phone"
+                    placeholder="Phone Number"
                     value={registerForm.phone}
                     onChange={handleRegisterChange}
                   />
@@ -256,23 +330,20 @@ const Navbar = () => {
                       onChange={handleRegisterChange}
                       required
                     />
-                    I agree to the <a href="#">Terms & Conditions</a>
+                    <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
                   </label>
                 </div>
                 <button type="submit" className="auth-submit-btn">
                   Register
                 </button>
+                <div className="auth-footer">
+                  Already have an account? <button type="button" onClick={() => setActiveTab('login')}>Sign In</button>
+                </div>
               </form>
             )}
           </div>
         </div>
       )}
-
-      <div className={`navbar__toggle ${isMobile ? 'active' : ''}`} onClick={toggleMenu}>
-        <span className="navbar__toggle-line"></span>
-        <span className="navbar__toggle-line"></span>
-        <span className="navbar__toggle-line"></span>
-      </div>
     </nav>
   );
 };

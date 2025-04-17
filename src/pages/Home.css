@@ -4,6 +4,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
 }
 
 .section {
